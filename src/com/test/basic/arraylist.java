@@ -3,6 +3,9 @@ package com.test.basic;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * ArrayList的练习操作  -  【数组列表】
@@ -58,17 +61,23 @@ public class arraylist {
         System.out.println("-------------");
 
         Integer[] number = {1, 2, 3, 6, 2, 3, 8};
-        //        ArrayList<Integer> numList;
-        //10.Arrays.asList(arr)将
-        //        ArrayList<Integer> numList = Arrays.asList(number);
-        //10. 将数组转化成一个arraylist 数组列表
+        //10. 将数组创建成一个arraylist 数组列表
         ArrayList<Integer> numList = new ArrayList<Integer>(Arrays.asList(number));
-        System.out.println("10.数组->成数组列表后的长度：" + numList.size());
+        System.out.println("10.用数组创建数组列表，后的长度：" + numList.size());
 
-        //11.将数组列表转化成数组
-
+        //11.将数组列表创建成数组，赋值内容到新数组
         Integer[] toArr = new Integer[numList.size()];
         numList.toArray(toArr);
-        System.out.println("11.数组列表->成数组后的数组长度(注意数组要初始化长度)：" + toArr.length);
+        System.out.println("11.数组列表赋值内容到数组，后的数组长度(注意数组要初始化长度)：" + toArr.length);
+
+        //12.获取到列表中的最大值
+        System.out.println("12.Collections.max获取到列表中的最大值:" + Collections.max(numList));
+
+
+        //13.
+        List<Integer> res = new ArrayList<>();
+        res = numList.stream().filter(e -> e > 2).collect(Collectors.toList());
+        System.out.println(res.size());
+
     }
 }
