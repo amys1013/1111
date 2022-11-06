@@ -77,6 +77,5 @@ public class string {
 
         System.out.println("\n");
 
-        //15.
     }
 }
